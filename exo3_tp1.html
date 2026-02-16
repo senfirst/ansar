@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AN'SAROUD DINE BAMBILOR - Institut Islamique</title>
@@ -51,7 +49,6 @@ h2 {
     border-radius: 5px;
     display: inline-block;
     margin: 10px;
-    cursor: pointer;
 }
 
 .btn:hover {
@@ -89,6 +86,7 @@ footer {
     margin: 20px auto;
     max-width: 600px;
     border-radius: 10px;
+    text-align:left;
 }
 
 </style>
@@ -99,12 +97,19 @@ footer {
 <header>
 <h1>🕌 AN'SAROUD DINE BAMBILOR</h1>
 <p>Cours en ligne Ramadan 2026</p>
+
+<p style="margin-top:20px; font-size:18px;">
+"Le meilleur d'entre vous est celui qui apprend le Coran et l'enseigne."
+<br>
+<em>(Hadith rapporté par Al-Bukhari)</em>
+</p>
 </header>
 
 <nav>
 <a href="#formations">Formations</a>
-<a href="#planning">Planning</a>
+<a href="#planning">Programme</a>
 <a href="#connexion">Espace Élève</a>
+<a href="#bibliotheque">Bibliothèque Islamique</a>
 </nav>
 
 <section id="formations" class="section">
@@ -124,15 +129,49 @@ footer {
 <h3>⚖️ Charia</h3>
 <p>7 500 FCFA / mois</p>
 </div>
+
+<a href="https://wa.me/221788626180" class="btn">
+📲 S'inscrire via WhatsApp
+</a>
+
 </section>
 
 <section id="planning" class="section">
-<h2>📅 Planning Automatique</h2>
+<h2>📅 Programme des Cours</h2>
 
 <div class="planning">
-<p><strong>Lundi :</strong> 📖 Qur'an - 16h00</p>
-<p><strong>Mercredi :</strong> 📜 Hadith - 17h00</p>
-<p><strong>Vendredi :</strong> ⚖️ Charia - 22h30</p>
+<h3>📖 Cours Al Qur'an</h3>
+<p><strong>Lundi - 16h00</strong></p>
+<ul>
+<li>Alphabet arabe</li>
+<li>Tajwid</li>
+<li>Sourate Al Fatiha</li>
+<li>Sourate Al Ikhlas</li>
+<li>Sourate Al Falaq</li>
+<li>Sourate An Nas</li>
+</ul>
+</div>
+
+<div class="planning">
+<h3>📜 Cours Hadith</h3>
+<p><strong>Mercredi - 17h00</strong></p>
+<ul>
+<li>40 Hadiths An-Nawawi</li>
+<li>Respect des parents</li>
+<li>Sincérité</li>
+<li>La prière</li>
+</ul>
+</div>
+
+<div class="planning">
+<h3>⚖️ Cours Charia</h3>
+<p><strong>Vendredi - 22h30</strong></p>
+<ul>
+<li>5 piliers de l'Islam</li>
+<li>Les ablutions</li>
+<li>Comment prier</li>
+<li>Le jeûne du Ramadan</li>
+</ul>
 </div>
 
 </section>
@@ -147,23 +186,55 @@ footer {
 
 <div id="accesCours" class="hidden">
 
-<h3>🎥 Accès aux Cours</h3>
+<h3>🎓 Salle des cours en direct</h3>
 
-<a href="https://meet.google.com/quran123" target="_blank" class="btn">
-📖 Accéder au Qur'an
+<div class="carte">
+<h3>📖 Qur'an</h3>
+<p id="etatQuran">⏳ Salle fermée</p>
+<a id="btnQuran" href="https://meet.google.com/rui-cbqt-tnh" target="_blank" class="btn hidden">
+✅ Rejoindre le cours
 </a>
+</div>
 
-<a href="https://zoom.us/j/hadith123" target="_blank" class="btn">
-📜 Accéder au Hadith
+<div class="carte">
+<h3>📜 Hadith</h3>
+<p id="etatHadith">⏳ Salle fermée</p>
+<a id="btnHadith" href="https://meet.google.com/pfs-nrad-ipn" target="_blank" class="btn hidden">
+✅ Rejoindre le cours
 </a>
+</div>
 
-<a href="https://meet.google.com/charia123" target="_blank" class="btn">
-⚖️ Accéder à la Charia
+<div class="carte">
+<h3>⚖️ Charia</h3>
+<p id="etatCharia">⏳ Salle fermée</p>
+<a id="btnCharia" href="https://meet.google.com/vuv-njei-rdj target="_blank" class="btn hidden">
+✅ Rejoindre le cours
 </a>
+</div>
 
 </div>
-</section>$
-$$$
+</section>
+
+<section id="bibliotheque" class="section">
+<h2>📚 Bibliothèque Islamique</h2>
+
+<div class="carte">
+<h3>📖 Le Saint Coran</h3>
+<a class="btn" target="_blank" href="https://quran.com/fr">Lire le Coran</a>
+<a class="btn" target="_blank" href="https://quranicaudio.com">Écouter le Coran</a>
+</div>
+
+<div class="carte">
+<h3>📜 Sahih Al Boukhari</h3>
+<a class="btn" target="_blank" href="https://sunnah.com/bukhari">Lire les Hadiths</a>
+</div>
+
+<div class="carte">
+<h3>⚖️ Al Akhdari</h3>
+<a class="btn" target="_blank" href="https://archive.org/details/akhdari">Lire le livre</a>
+</div>
+
+</section>
 
 <footer>
 © 2026 AN'SAROUD DINE BAMBILOR
@@ -176,13 +247,47 @@ function verifier() {
 
     if(mdp === "ansar2026") {
         document.getElementById("accesCours").classList.remove("hidden");
-        alert("Connexion réussie !");
+        verifierCours();
+        alert("Bienvenue dans l'institut !");
     } else {
         alert("Mot de passe incorrect !");
     }
 }
 
+function verifierCours(){
+
+    var maintenant = new Date();
+    var jour = maintenant.getDay();
+    var heure = maintenant.getHours();
+
+    // Lundi Qur'an 16h
+    if(jour === 1 && heure === 16){
+        document.getElementById("etatQuran").innerHTML = "🟢 Cours en direct maintenant";
+        document.getElementById("btnQuran").classList.remove("hidden");
+    }else{
+        document.getElementById("etatQuran").innerHTML = "🔴 Cours fermé";
+    }
+
+    // Mercredi Hadith 17h
+    if(jour === 3 && heure === 17){
+        document.getElementById("etatHadith").innerHTML = "🟢 Cours en direct maintenant";
+        document.getElementById("btnHadith").classList.remove("hidden");
+    }else{
+        document.getElementById("etatHadith").innerHTML = "🔴 Cours fermé";
+    }
+
+    // Vendredi Charia 22h
+    if(jour === 5 && heure === 22){
+        document.getElementById("etatCharia").innerHTML = "🟢 Cours en direct maintenant";
+        document.getElementById("btnCharia").classList.remove("hidden");
+    }else{
+        document.getElementById("etatCharia").innerHTML = "🔴 Cours fermé";
+    }
+}
+
 </script>
+
+
 
 </body>
 </html>
